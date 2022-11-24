@@ -1,3 +1,4 @@
+/// Set of extensions for the `Optional` type that allows using `nil-coalescing` operations in the form of functions.
 public extension Optional {
     /// Performs a `nil-coalescing` operation, returning the wrapped value of an `Optional` instance or a fallback value.
     ///
