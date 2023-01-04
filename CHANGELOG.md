@@ -1,3 +1,12 @@
+# [0.3.0](https://github.com/EmilioOjeda/Extender/compare/0.2.0...0.3.0) (2023-01-04)
+
+
+### Features
+
+* provide a key decoding strategy for converting from pascal-case to camel-case ([aa4bf43](https://github.com/EmilioOjeda/Extender/commit/aa4bf4398685f604badbbba410efd2d5af2c99e1))
+
+
+
 # [0.2.0](https://github.com/EmilioOjeda/Extender/compare/0.1.0...0.2.0) (2022-11-24)
 
 
