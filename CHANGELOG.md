@@ -1,3 +1,13 @@
+# [0.3.0](https://github.com/EmilioOjeda/Extender/compare/0.2.0...0.3.0) (2023-07-05)
+
+
+### Features
+
+* provide a key decoding strategy for converting from `kebab-case` to `camelCase` ([8403d9d](https://github.com/EmilioOjeda/Extender/commit/8403d9d5119fe31f64edb628d868cd1690b865e7))
+* provide a key decoding strategy for converting from `PascalCase` to `camelCase` ([ff06e0d](https://github.com/EmilioOjeda/Extender/commit/ff06e0dc3b7deb9c85279bdf907c30fa40f37dc6))
+
+
+
 # [0.2.0](https://github.com/EmilioOjeda/Extender/compare/0.1.0...0.2.0) (2022-11-24)
 
 
