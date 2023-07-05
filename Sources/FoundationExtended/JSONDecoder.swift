@@ -29,4 +29,28 @@ public extension JSONDecoder.KeyDecodingStrategy {
                 ).or(codingKey)
         }
     }
+
+    /// A key decoding strategy that converts `PascalCase` keys to `camelCase` keys.
+    static var convertFromPascalCase: JSONDecoder.KeyDecodingStrategy {
+        .custom { codingPath in
+            let codingKey = codingPath[codingPath.endIndex.advanced(by: -1)]
+
+            guard codingKey.intValue == nil else {
+                return codingKey
+            }
+
+            let head = codingKey
+                .stringValue
+                .prefix(1)
+                .lowercased()
+
+            let tail = codingKey
+                .stringValue
+                .dropFirst()
+
+            return type(of: codingKey)
+                .init(stringValue: head + tail)
+                .or(codingKey)
+        }
+    }
 }
