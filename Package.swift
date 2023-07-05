@@ -7,6 +7,9 @@ let package = Package(
         .library(
             name: "SwiftExtended",
             targets: ["SwiftExtended"]),
+        .library(
+            name: "FoundationExtended",
+            targets: ["FoundationExtended"]),
     ],
     dependencies: [],
     targets: [
@@ -15,5 +18,11 @@ let package = Package(
         .testTarget(
             name: "SwiftExtendedTests",
             dependencies: ["SwiftExtended"]),
+        .target(
+            name: "FoundationExtended",
+            dependencies: ["SwiftExtended"]),
+        .testTarget(
+            name: "FoundationExtendedTests",
+            dependencies: ["FoundationExtended"]),
     ]
 )
