@@ -1,3 +1,12 @@
+# [0.4.0](https://github.com/EmilioOjeda/Extender/compare/0.3.0...0.4.0) (2023-07-06)
+
+
+### Features
+
+* allow the encoding and decoding of dictionaries ([9cc946a](https://github.com/EmilioOjeda/Extender/commit/9cc946a169109f8d901edf93302d502f25fc9994))
+
+
+
 # [0.3.0](https://github.com/EmilioOjeda/Extender/compare/0.2.0...0.3.0) (2023-07-05)
 
 
