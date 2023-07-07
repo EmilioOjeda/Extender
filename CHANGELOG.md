@@ -1,3 +1,12 @@
+# [0.5.0](https://github.com/EmilioOjeda/Extender/compare/0.4.0...0.5.0) (2023-07-07)
+
+
+### Features
+
+* add the merge (`+=`) and merging (`+`) operators to dictionaries ([3f0360d](https://github.com/EmilioOjeda/Extender/commit/3f0360da13c836099af455bcb82995fb65fddad5))
+
+
+
 # [0.4.0](https://github.com/EmilioOjeda/Extender/compare/0.3.0...0.4.0) (2023-07-06)
 
 
