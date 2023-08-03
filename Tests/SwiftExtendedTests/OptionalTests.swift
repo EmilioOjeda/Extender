@@ -49,4 +49,20 @@ final class OptionalTests: XCTestCase {
         // then
         XCTAssertEqual(fallback, value)
     }
+
+    func testIsNil() {
+        // given
+        let nilValue = Optional<String>.none
+        // then
+        XCTAssertNil(nilValue)
+        XCTAssertTrue(nilValue.isNil)
+    }
+
+    func testIsNotNil() {
+        // given
+        let someValue = Optional<String>.some(name)
+        // then
+        XCTAssertNotNil(someValue)
+        XCTAssertTrue(someValue.isNotNil)
+    }
 }
