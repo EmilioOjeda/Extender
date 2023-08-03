@@ -36,3 +36,15 @@ public extension Optional {
         return self
     }
 }
+
+public extension Optional {
+    /// A boolean value indicating whether its content is `nil`.
+    var isNil: Bool {
+        self == nil
+    }
+
+    /// A boolean value indicating whether its content is not `nil`.
+    var isNotNil: Bool {
+        self != nil
+    }
+}
