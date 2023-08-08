@@ -65,4 +65,40 @@ final class OptionalTests: XCTestCase {
         XCTAssertNotNil(someValue)
         XCTAssertTrue(someValue.isNotNil)
     }
+
+    func testFilter() {
+        // given
+        let numberOne = 1
+        let numberTwo = 2
+        let optionalNumberOne = Optional.some(numberOne)
+        // then
+        XCTAssertLessThan(numberOne, numberTwo)
+        XCTAssertNil(
+            optionalNumberOne
+                .filter { $0 > numberTwo }
+        )
+        XCTAssertEqual(
+            numberOne,
+            optionalNumberOne
+                .filter { $0 < numberTwo }
+        )
+    }
+
+    func testFilterWhereThen() {
+        // given
+        let numberOne = 1
+        let numberTwo = 2
+        let optionalNumberOne = Optional.some(numberOne)
+        // then
+        XCTAssertLessThan(numberOne, numberTwo)
+        XCTAssertNil(
+            optionalNumberOne
+                .filter(where: { $0 > numberTwo }, then: String.init)
+        )
+        XCTAssertEqual(
+           "\(numberOne)",
+            optionalNumberOne
+                .filter(where: { $0 < numberTwo }, then: String.init)
+        )
+    }
 }

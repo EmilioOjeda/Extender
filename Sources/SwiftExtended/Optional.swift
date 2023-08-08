@@ -48,3 +48,54 @@ public extension Optional {
         self != nil
     }
 }
+
+public extension Optional {
+    /// Filters the value out when the `condition` is not met.
+    ///
+    /// It has a side effect dependent on the meeting of the `condition` executed.
+    /// When the `condition` resolves to `false`, it discards the value and returns `nil` instead.
+    ///
+    /// ```swift
+    /// let searchText: String? = "Coffee"
+    ///
+    /// searchText
+    ///     .filter { $0.count >= 3 }
+    ///     .map(search)
+    /// ```
+    ///
+    /// - Parameter condition: The condition to fulfill.
+    /// - Returns: The wrapped value when fulfilling the `condition`; otherwise, `nil`.
+    func filter(
+        _ condition: (Wrapped) throws -> Bool
+    ) rethrows -> Wrapped? {
+        try flatMap { wrapped in
+            try condition(wrapped) ? wrapped : nil
+        }
+    }
+
+
+    /// Filters the value out when the `condition` is not met and runs the `transform` function when met.
+    ///
+    /// This is equivalent to doing `filter(_:)` + `flatMap(_:)` in a single shot.
+    ///
+    /// ```swift
+    /// let searchText: String? = "Coffee"
+    ///
+    /// searchText
+    ///     .filter(where: { $0.count >= 3 }) { text in
+    ///         search(text)
+    ///     }
+    /// ```
+    ///
+    /// - Parameters:
+    ///   - condition: The condition to fulfill.
+    ///   - transform: The transformation to execution when the `condition` is met.
+    /// - Returns: An optional value that resolves to either the result of the transformation or `nil`, depending on the meeting of the `condition`.
+    func filter<Value>(
+        where condition: (Wrapped) -> Bool,
+        then transform: (Wrapped) throws -> Value?
+    ) rethrows -> Value? {
+        try filter(condition)
+            .flatMap(transform)
+    }
+}
