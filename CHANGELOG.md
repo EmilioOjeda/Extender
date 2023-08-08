@@ -1,3 +1,16 @@
+# [0.6.0](https://github.com/EmilioOjeda/Extender/compare/0.5.0...0.6.0) (2023-08-08)
+
+
+### Features
+
+* add the `isNil` and `isNotNil` properties to check for nullability on optionals ([8b16f37](https://github.com/EmilioOjeda/Extender/commit/8b16f3719555999e835a81395f6bd430bf93744c))
+* add the `isNotEmpty` for expressing non-emptiness in collections ([2dc8b96](https://github.com/EmilioOjeda/Extender/commit/2dc8b965af55fdbaf776baec0a144f6b7760db8b))
+* add the Scala-like `contains` functions to the `Optional` type ([f6b20d2](https://github.com/EmilioOjeda/Extender/commit/f6b20d23f225eab3db4f8f149c28f3de90838d3c))
+* add the Scala-like `filter` functions to the `Optional` type ([d7c2a6b](https://github.com/EmilioOjeda/Extender/commit/d7c2a6b3d81f0bf36051ecafd3a1626b4f0b5093))
+* enable the comparison between key paths and values ([bd0af0b](https://github.com/EmilioOjeda/Extender/commit/bd0af0b17a82fa3114f382e78583e91f0c4aba29))
+
+
+
 # [0.5.0](https://github.com/EmilioOjeda/Extender/compare/0.4.0...0.5.0) (2023-07-07)
 
 
