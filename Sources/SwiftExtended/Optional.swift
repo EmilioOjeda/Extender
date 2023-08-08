@@ -59,7 +59,7 @@ public extension Optional {
     /// let searchText: String? = "Coffee"
     ///
     /// searchText
-    ///     .filter { $0.count >= 3 }
+    ///     .filter(\.count >= 3)
     ///     .map(search)
     /// ```
     ///
@@ -82,7 +82,7 @@ public extension Optional {
     /// let searchText: String? = "Coffee"
     ///
     /// searchText
-    ///     .filter(where: { $0.count >= 3 }) { text in
+    ///     .filter(where: \.count >= 3) { text in
     ///         search(text)
     ///     }
     /// ```
