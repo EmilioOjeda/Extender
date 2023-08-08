@@ -75,12 +75,12 @@ final class OptionalTests: XCTestCase {
         XCTAssertLessThan(numberOne, numberTwo)
         XCTAssertNil(
             optionalNumberOne
-                .filter { $0 > numberTwo }
+                .filter(\.self > numberTwo)
         )
         XCTAssertEqual(
             numberOne,
             optionalNumberOne
-                .filter { $0 < numberTwo }
+                .filter(\.self < numberTwo)
         )
     }
 
@@ -93,12 +93,12 @@ final class OptionalTests: XCTestCase {
         XCTAssertLessThan(numberOne, numberTwo)
         XCTAssertNil(
             optionalNumberOne
-                .filter(where: { $0 > numberTwo }, then: String.init)
+                .filter(where: \.self > numberTwo, then: String.init)
         )
         XCTAssertEqual(
            "\(numberOne)",
             optionalNumberOne
-                .filter(where: { $0 < numberTwo }, then: String.init)
+                .filter(where: \.self < numberTwo, then: String.init)
         )
     }
 }
