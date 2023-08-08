@@ -15,6 +15,7 @@ private struct False: Boolean {
 
 final class KeyPathTests: XCTestCase {
     private let booleans: [any Boolean] = [True(), False()]
+    private let numberOneOptional: Int? = 1
 
     func testNegationOnKeyPathsAsPredicates() throws {
         XCTAssertEqual(
@@ -44,6 +45,30 @@ final class KeyPathTests: XCTestCase {
                     .filter(\.boolean != true)
                     .first as? False
             )
+        )
+    }
+
+    func testGreaterThanAndGreaterThanOrEqual() {
+        XCTAssertNotNil(
+            numberOneOptional
+                .filter(\.self > 0)
+        )
+
+        XCTAssertNotNil(
+            numberOneOptional
+                .filter(\.self >= 1)
+        )
+    }
+
+    func testLessThanAndLessThanOrEqual() {
+        XCTAssertNotNil(
+            numberOneOptional
+                .filter(\.self < 2)
+        )
+
+        XCTAssertNotNil(
+            numberOneOptional
+                .filter(\.self <= 1)
         )
     }
 }
