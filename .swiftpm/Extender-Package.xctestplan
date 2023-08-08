@@ -1,0 +1,47 @@
+{
+  "configurations" : [
+    {
+      "id" : "8E2A38A9-E273-49A9-84AD-A2CA016DD522",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:",
+          "identifier" : "SwiftExtended",
+          "name" : "SwiftExtended"
+        },
+        {
+          "containerPath" : "container:",
+          "identifier" : "FoundationExtended",
+          "name" : "FoundationExtended"
+        }
+      ]
+    },
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "FoundationExtendedTests",
+        "name" : "FoundationExtendedTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "SwiftExtendedTests",
+        "name" : "SwiftExtendedTests"
+      }
+    }
+  ],
+  "version" : 1
+}
