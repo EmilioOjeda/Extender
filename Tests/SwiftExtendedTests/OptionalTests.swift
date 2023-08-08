@@ -101,4 +101,45 @@ final class OptionalTests: XCTestCase {
                 .filter(where: \.self < numberTwo, then: String.init)
         )
     }
+
+    func testContains() {
+        // given
+        let letterA = "a"
+        let letterD = "d"
+        let lettersABC: [String] = ["a", "b", "c"]
+
+        // then
+        XCTAssertTrue(
+            Optional<String>
+                .some(letterA)
+                .contains(letterA)
+        )
+        XCTAssertFalse(
+            Optional<String>
+                .some(letterA)
+                .contains(letterD)
+        )
+        XCTAssertFalse(
+            Optional<String>
+                .none
+                .contains(letterA)
+        )
+
+        // also
+        XCTAssertTrue(
+            Optional<[String]>
+                .some(lettersABC)
+                .contains(letterA)
+        )
+        XCTAssertFalse(
+            Optional<[String]>
+                .some(lettersABC)
+                .contains(letterD)
+        )
+        XCTAssertFalse(
+            Optional<[String]>
+                .none
+                .contains(letterA)
+        )
+    }
 }
