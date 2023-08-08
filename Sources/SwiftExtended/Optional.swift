@@ -99,3 +99,25 @@ public extension Optional {
             .flatMap(transform)
     }
 }
+
+public extension Optional where Wrapped: Equatable {
+    /// Checks if the value is wrapped within the `Optional` type.
+    /// - Parameter value: The value to search for.
+    /// - Returns: Whether the given value is wrapped in the `Optional` type.
+    func contains(_ value: Wrapped) -> Bool {
+        self == value
+    }
+}
+
+public extension Optional where Wrapped: Collection, Wrapped.Element: Equatable {
+    /// Checks if the value is present in the `Collection` wrapped within the `Optional` type.
+    /// - Parameter element: The value to search for.
+    /// - Returns: Whether the given value is present in the `Collection` wrapped in the `Optiona` type.
+    func contains(_ element: Wrapped.Element) -> Bool {
+        guard let collection = self else {
+            return false
+        }
+        return collection
+            .contains(where: \.self == element)
+    }
+}
