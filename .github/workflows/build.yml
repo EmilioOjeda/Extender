@@ -3,8 +3,18 @@ name: Build
 on: [pull_request]
 
 jobs:
+  lint:
+    name: Lint Code
+    runs-on: macos-12
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+      - name: SwiftLint
+        run: swiftlint lint --strict
   build-and-test:
-    name: Build & Test
+    name: Build and Test
     runs-on: macos-12
     steps:
       - name: Checkout
