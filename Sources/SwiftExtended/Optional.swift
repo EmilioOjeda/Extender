@@ -73,7 +73,6 @@ public extension Optional {
         }
     }
 
-
     /// Filters the value out when the `condition` is not met and runs the `transform` function when met.
     ///
     /// This is equivalent to doing `filter(_:)` + `flatMap(_:)` in a single shot.

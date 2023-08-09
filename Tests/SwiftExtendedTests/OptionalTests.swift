@@ -7,7 +7,7 @@ final class OptionalTests: XCTestCase {
         let wrapped = 0
         let fallback = 1
         // when
-        let value = Optional<Int>
+        let value = Optional<Int> // swiftlint:disable:this syntactic_sugar
             .some(wrapped)
             .or(fallback)
         // then
@@ -31,7 +31,7 @@ final class OptionalTests: XCTestCase {
         let wrapped = 0
         let fallback = Optional.some(1)
         // when
-        let value = Optional<Int>
+        let value = Optional<Int> // swiftlint:disable:this syntactic_sugar
             .some(wrapped)
             .or(fallback)
         // then
@@ -60,7 +60,8 @@ final class OptionalTests: XCTestCase {
 
     func testIsNotNil() {
         // given
-        let someValue = Optional<String>.some(name)
+        let someValue = Optional<String> // swiftlint:disable:this syntactic_sugar
+            .some(name)
         // then
         XCTAssertNotNil(someValue)
         XCTAssertTrue(someValue.isNotNil)
@@ -110,12 +111,12 @@ final class OptionalTests: XCTestCase {
 
         // then
         XCTAssertTrue(
-            Optional<String>
+            Optional<String> // swiftlint:disable:this syntactic_sugar
                 .some(letterA)
                 .contains(letterA)
         )
         XCTAssertFalse(
-            Optional<String>
+            Optional<String> // swiftlint:disable:this syntactic_sugar
                 .some(letterA)
                 .contains(letterD)
         )
@@ -127,12 +128,12 @@ final class OptionalTests: XCTestCase {
 
         // also
         XCTAssertTrue(
-            Optional<[String]>
+            Optional<[String]> // swiftlint:disable:this syntactic_sugar
                 .some(lettersABC)
                 .contains(letterA)
         )
         XCTAssertFalse(
-            Optional<[String]>
+            Optional<[String]> // swiftlint:disable:this syntactic_sugar
                 .some(lettersABC)
                 .contains(letterD)
         )
