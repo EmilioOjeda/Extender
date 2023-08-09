@@ -6,23 +6,27 @@ let package = Package(
     products: [
         .library(
             name: "SwiftExtended",
-            targets: ["SwiftExtended"]),
+            targets: ["SwiftExtended"]
+        ),
         .library(
             name: "FoundationExtended",
-            targets: ["FoundationExtended"]),
+            targets: ["FoundationExtended"]
+        )
     ],
     dependencies: [],
     targets: [
-        .target(
-            name: "SwiftExtended"),
+        .target(name: "SwiftExtended"),
         .testTarget(
             name: "SwiftExtendedTests",
-            dependencies: ["SwiftExtended"]),
+            dependencies: ["SwiftExtended"]
+        ),
         .target(
             name: "FoundationExtended",
-            dependencies: ["SwiftExtended"]),
+            dependencies: ["SwiftExtended"]
+        ),
         .testTarget(
             name: "FoundationExtendedTests",
-            dependencies: ["FoundationExtended"]),
+            dependencies: ["FoundationExtended"]
+        )
     ]
 )

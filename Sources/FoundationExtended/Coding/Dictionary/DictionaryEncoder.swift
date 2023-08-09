@@ -26,6 +26,7 @@ open class DictionaryEncoder {
                 domain: "\(type(of: self))",
                 code: NSCoderInvalidValueError,
                 userInfo: [
+                    // swiftlint:disable:next line_length
                     NSLocalizedDescriptionKey: "Failed encoding from '\(type(of: value))' to 'Dictionary<\(Key.self), \(Value.self)>'"
                 ]
             )

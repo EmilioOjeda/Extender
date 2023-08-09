@@ -11,7 +11,7 @@
 /// - Parameters:
 ///   - keyPath: The key path to the resulting boolean value where the negation is applied.
 /// - Returns: A function from a value to a bool.
-public prefix func !<Element>(
+public prefix func ! <Element>(
     keyPath: KeyPath<Element, Bool>
 ) -> (Element) -> Bool {
     { element in
