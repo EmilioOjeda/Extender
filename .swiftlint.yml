@@ -1,0 +1,11 @@
+analyzer_rules:
+  - explicit_self
+
+included:
+  - Sources
+  - Tests
+
+line_length:
+  ignores_comments: true
+  warning: 120
+  error: 160
