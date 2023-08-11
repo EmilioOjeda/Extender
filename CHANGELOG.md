@@ -1,3 +1,13 @@
+# [0.7.0](https://github.com/EmilioOjeda/Extender/compare/0.6.0...0.7.0) (2023-08-11)
+
+
+### Features
+
+* add the `first(where:)` function to the `Optional` type ([0917c89](https://github.com/EmilioOjeda/Extender/commit/0917c89b0488cea303002052c550b5f284dc5f71))
+* add the `zip` function to the `Optional` type ([6ce8995](https://github.com/EmilioOjeda/Extender/commit/6ce8995fbb7bb82f0a5f78f2fab4203eef99ce4b))
+
+
+
 # [0.6.0](https://github.com/EmilioOjeda/Extender/compare/0.5.0...0.6.0) (2023-08-08)
 
 
