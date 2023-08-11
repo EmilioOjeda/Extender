@@ -143,4 +143,33 @@ final class OptionalTests: XCTestCase {
                 .contains(letterA)
         )
     }
+
+    func testZip() throws {
+        // given
+        let leftHandSideValue = 1
+        let rightHandSideValue = "A"
+
+        // when
+        let unzippedPair = try XCTUnwrap(
+            Optional
+                .some(leftHandSideValue)
+                .zip(with: Optional.some(rightHandSideValue))
+        )
+
+        // then
+        XCTAssertEqual(leftHandSideValue, unzippedPair.0)
+        XCTAssertEqual(rightHandSideValue, unzippedPair.1)
+
+        // and when
+        let nilDueToLeftHandSide = Optional<Int>
+            .none
+            .zip(with: Optional.some(rightHandSideValue))
+        let nilDueToRightHandSide = Optional
+            .some(leftHandSideValue)
+            .zip(with: Optional<String>.none)
+
+        // then
+        XCTAssertNil(nilDueToLeftHandSide)
+        XCTAssertNil(nilDueToRightHandSide)
+    }
 }

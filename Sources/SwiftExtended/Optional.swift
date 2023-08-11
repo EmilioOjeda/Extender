@@ -99,6 +99,30 @@ public extension Optional {
     }
 }
 
+public extension Optional {
+    /// Combines (zips) the given value with the existing one - if any - to produce a tuple.
+    ///
+    /// The tuple is only produced when both optional values contain a value; otherwise, it returns `Optional.none`.
+    ///
+    /// ```swift
+    /// let credentials: Credentials? = usernameTextField
+    ///     .text
+    ///     .zip(with: passwordTextField.text)
+    ///     .map { username, password in
+    ///         Credentials(username: username, password: password)
+    ///     }
+    /// ```
+    ///
+    /// - Parameter other: The value to combine.
+    /// - Returns: A tuple containing the zipped values.
+    func zip<Other>(with other: Other?) -> (Wrapped, Other)? {
+        guard let self, let other else {
+            return nil
+        }
+        return (self, other)
+    }
+}
+
 public extension Optional where Wrapped: Equatable {
     /// Checks if the value is wrapped within the `Optional` type.
     /// - Parameter value: The value to search for.
