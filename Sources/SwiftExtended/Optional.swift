@@ -143,4 +143,15 @@ public extension Optional where Wrapped: Collection, Wrapped.Element: Equatable 
         return collection
             .contains(where: \.self == element)
     }
+
+    /// Finds the first element of the wrapped `Collection` satisfying a `predicate`, if any.
+    /// - Parameter predicate: The predicate to satisfy.
+    /// - Returns: The first found element that satisfies the predicate.
+    func first(where predicate: (Wrapped.Element) -> Bool) -> Wrapped.Element? {
+        guard let collection = self else {
+            return nil
+        }
+        return collection
+            .first(where: predicate)
+    }
 }

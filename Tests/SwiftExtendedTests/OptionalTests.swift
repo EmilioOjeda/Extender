@@ -172,4 +172,18 @@ final class OptionalTests: XCTestCase {
         XCTAssertNil(nilDueToLeftHandSide)
         XCTAssertNil(nilDueToRightHandSide)
     }
+
+    func testFirstWhere() {
+        // given
+        let optionalABC: [String]? = ["A", "B", "C"]
+
+        // then
+        XCTAssertNil(optionalABC.first(where: \.self == "D"))
+        XCTAssertNotNil(optionalABC.first(where: \.self == "A"))
+        XCTAssertNil(
+            Optional<[String]>
+                .none
+                .first(where: \.self == "A")
+        )
+    }
 }
