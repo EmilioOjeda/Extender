@@ -35,6 +35,19 @@ public extension Optional {
         }
         return self
     }
+
+    /// Returns the wrapped value - if any - otherwise, it throws the provided error.
+    ///
+    /// - Parameter error: The error to throw.
+    /// - Returns: The wrapped value - if any.
+    func or<Error: Swift.Error>(
+        throw error: @autoclosure () -> Error
+    ) throws -> Wrapped {
+        guard let self else {
+            throw error()
+        }
+        return self
+    }
 }
 
 public extension Optional {
