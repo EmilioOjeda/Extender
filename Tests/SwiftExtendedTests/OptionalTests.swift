@@ -1,5 +1,5 @@
-import XCTest
 import SwiftExtended
+import XCTest
 
 final class OptionalTests: XCTestCase {
     func testNonOptionalValue() {
@@ -7,7 +7,7 @@ final class OptionalTests: XCTestCase {
         let wrapped = 0
         let fallback = 1
         // when
-        let value = Optional<Int> // swiftlint:disable:this syntactic_sugar
+        let value = Int?
             .some(wrapped)
             .or(fallback)
         // then
@@ -17,9 +17,9 @@ final class OptionalTests: XCTestCase {
 
     func testNonOptionalFallback() {
         // given
-        let fallback = Int.random(in: 0...9)
+        let fallback = Int.random(in: 0 ... 9)
         // when
-        let value = Optional<Int>
+        let value = Int?
             .none
             .or(fallback)
         // then
@@ -31,7 +31,7 @@ final class OptionalTests: XCTestCase {
         let wrapped = 0
         let fallback = Optional.some(1)
         // when
-        let value = Optional<Int> // swiftlint:disable:this syntactic_sugar
+        let value = Int?
             .some(wrapped)
             .or(fallback)
         // then
@@ -41,18 +41,37 @@ final class OptionalTests: XCTestCase {
 
     func testOptionalFallback() {
         // given
-        let fallback: Int? = Int.random(in: 0...9)
+        let fallback: Int? = Int.random(in: 0 ... 9)
         // when
-        let value = Optional<Int>
+        let value = Int?
             .none
             .or(fallback)
         // then
         XCTAssertEqual(fallback, value)
     }
 
+    func testNoThrowsWhenGettingWrappedValue() throws {
+        struct DummyError: Swift.Error {}
+        // given
+        let value = name
+        let wrappedValue = Optional.some(value)
+        // when
+        let unwrappedValue = try wrappedValue.or(throw: DummyError())
+        // then
+        XCTAssertEqual(unwrappedValue, value)
+    }
+
+    func testThrowsErrorWhenGettingWrappedValue() throws {
+        struct FakeError: Swift.Error {}
+        // given
+        let nilWrappedValue = String?.none
+        // then
+        XCTAssertThrowsError(try nilWrappedValue.or(throw: FakeError()))
+    }
+
     func testIsNil() {
         // given
-        let nilValue = Optional<String>.none
+        let nilValue = String?.none
         // then
         XCTAssertNil(nilValue)
         XCTAssertTrue(nilValue.isNil)
@@ -60,8 +79,7 @@ final class OptionalTests: XCTestCase {
 
     func testIsNotNil() {
         // given
-        let someValue = Optional<String> // swiftlint:disable:this syntactic_sugar
-            .some(name)
+        let someValue = Optional.some(name)
         // then
         XCTAssertNotNil(someValue)
         XCTAssertTrue(someValue.isNotNil)
@@ -97,7 +115,7 @@ final class OptionalTests: XCTestCase {
                 .filter(where: \.self > numberTwo, then: String.init)
         )
         XCTAssertEqual(
-           "\(numberOne)",
+            "\(numberOne)",
             optionalNumberOne
                 .filter(where: \.self < numberTwo, then: String.init)
         )
@@ -111,34 +129,34 @@ final class OptionalTests: XCTestCase {
 
         // then
         XCTAssertTrue(
-            Optional<String> // swiftlint:disable:this syntactic_sugar
+            String?
                 .some(letterA)
                 .contains(letterA)
         )
         XCTAssertFalse(
-            Optional<String> // swiftlint:disable:this syntactic_sugar
+            String?
                 .some(letterA)
                 .contains(letterD)
         )
         XCTAssertFalse(
-            Optional<String>
+            String?
                 .none
                 .contains(letterA)
         )
 
         // also
         XCTAssertTrue(
-            Optional<[String]> // swiftlint:disable:this syntactic_sugar
+            [String]?
                 .some(lettersABC)
                 .contains(letterA)
         )
         XCTAssertFalse(
-            Optional<[String]> // swiftlint:disable:this syntactic_sugar
+            [String]?
                 .some(lettersABC)
                 .contains(letterD)
         )
         XCTAssertFalse(
-            Optional<[String]>
+            [String]?
                 .none
                 .contains(letterA)
         )
@@ -161,12 +179,12 @@ final class OptionalTests: XCTestCase {
         XCTAssertEqual(rightHandSideValue, unzippedPair.1)
 
         // and when
-        let nilDueToLeftHandSide = Optional<Int>
+        let nilDueToLeftHandSide = Int?
             .none
             .zip(with: Optional.some(rightHandSideValue))
         let nilDueToRightHandSide = Optional
             .some(leftHandSideValue)
-            .zip(with: Optional<String>.none)
+            .zip(with: String?.none)
 
         // then
         XCTAssertNil(nilDueToLeftHandSide)
@@ -181,7 +199,7 @@ final class OptionalTests: XCTestCase {
         XCTAssertNil(optionalABC.first(where: \.self == "D"))
         XCTAssertNotNil(optionalABC.first(where: \.self == "A"))
         XCTAssertNil(
-            Optional<[String]>
+            [String]?
                 .none
                 .first(where: \.self == "A")
         )
