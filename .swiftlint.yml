@@ -1,5 +1,7 @@
 analyzer_rules:
   - explicit_self
+  - unused_declaration
+  - unused_import
 
 included:
   - Sources
