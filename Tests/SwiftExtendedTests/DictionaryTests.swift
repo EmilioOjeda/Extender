@@ -1,5 +1,5 @@
-import XCTest
 @testable import SwiftExtended
+import XCTest
 
 final class DictionaryTests: XCTestCase {
     func testMergeOperator() throws {

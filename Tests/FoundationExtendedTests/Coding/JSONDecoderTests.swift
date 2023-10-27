@@ -1,12 +1,5 @@
-//
-//  JSONDecoderTests.swift
-//  
-//
-//  Created by Emilio Ojeda on 04/01/23.
-//
-
-import XCTest
 import FoundationExtended
+import XCTest
 
 final class JSONDecoderTests: XCTestCase {
     func testKeyDecodingStrategyConvertFromKebabCase() throws {

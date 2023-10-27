@@ -1,12 +1,5 @@
-//
-//  CollectionTests.swift
-//  
-//
-//  Created by Emilio Ojeda on 02/08/23.
-//
-
-import XCTest
 @testable import SwiftExtended
+import XCTest
 
 final class CollectionTests: XCTestCase {
     func testIsNotEmpty() {

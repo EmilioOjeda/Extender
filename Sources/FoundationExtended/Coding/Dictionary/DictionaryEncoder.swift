@@ -14,10 +14,9 @@ open class DictionaryEncoder {
     /// - Parameters:
     ///   - value: The value to encode as `Dictionary`.
     /// - Returns: The encoded `Dictionary` value.
-    open func encode<Item, Key, Value>(
-        _ value: Item
-    ) throws -> [Key: Value]
-    where Item: Encodable, Key: Hashable {
+    open func encode<Key: Hashable, Value>(
+        _ value: some Encodable
+    ) throws -> [Key: Value] {
         let data = try encoder.encode(value)
         let json = try JSONSerialization.jsonObject(with: data)
 

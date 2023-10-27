@@ -1,5 +1,5 @@
-import XCTest
 @testable import FoundationExtended
+import XCTest
 
 final class DictionaryCodingTests: XCTestCase {
     private struct Product: Codable, Equatable {
