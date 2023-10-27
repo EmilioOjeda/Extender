@@ -1,3 +1,12 @@
+# [0.8.0](https://github.com/EmilioOjeda/Extender/compare/0.7.0...0.8.0) (2023-10-27)
+
+
+### Features
+
+* enable throwing errors when trying to get the wrapped value from an `Optional` type ([b705d9c](https://github.com/EmilioOjeda/Extender/commit/b705d9c9f5b799138f3d35936f914e706f3132ad))
+
+
+
 # [0.7.0](https://github.com/EmilioOjeda/Extender/compare/0.6.0...0.7.0) (2023-08-11)
 
 
