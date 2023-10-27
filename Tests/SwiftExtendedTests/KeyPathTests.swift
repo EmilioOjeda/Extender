@@ -1,5 +1,5 @@
-import XCTest
 @testable import SwiftExtended
+import XCTest
 
 private protocol Boolean: Hashable {
     var boolean: Bool { get }

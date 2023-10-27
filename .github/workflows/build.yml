@@ -3,6 +3,16 @@ name: Build
 on: [pull_request]
 
 jobs:
+  code-format:
+    name: Check Code Format
+    runs-on: macos-13
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+      - name: SwiftFormat
+        run: swiftformat . --lint
   lint:
     name: Lint Code
     runs-on: macos-13
